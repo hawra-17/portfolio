@@ -2,6 +2,7 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { TechStack } from "./components/TechStack";
 import { AboutServices } from "./components/AboutServices";
+import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -14,6 +15,7 @@ function App() {
          - Hero: First screen
          - TechStack: The list of skills bar
          - AboutServices: "Services" list on left, "About Me" on right
+         - Projects: Portfolio showcase with alternating layout
          - Contact: The "Have a project?" form
          - Footer: Copyright and social links
       */}
@@ -23,6 +25,7 @@ function App() {
         <Hero />
         <TechStack />
         <AboutServices />
+        <Projects />
         <Contact />
       </main>
 

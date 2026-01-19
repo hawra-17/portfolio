@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import Hawra from "../assets/MyPhoto/Hawra.JPG";
 
 /**
  * Hero Component
@@ -54,8 +55,8 @@ export function Hero() {
           {/* We use a colored div + emoji as a placeholder if no image exists */}
           <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
-              alt="Jensen"
+              src={Hawra}
+              alt="Hawra"
               className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
             />
           </div>
