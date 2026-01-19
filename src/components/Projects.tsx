@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import Zakat from "../assets/projectsImage/Zakat.png";
 import Alnas from "../assets/projectsImage/AlNas.png";
+import Todo from "../assets/projectsImage/Todo.png";
 
 /**
  * Projects Section Component
@@ -47,9 +48,8 @@ const projects: Project[] = [
       "I have developed a user-friendly web application designed to assist individuals in organizing their schedules. The application serves as a straightforward to-do list and was constructed using",
     tags: ["HTML", "Tailwind CSS", "Javascript"],
     githubUrl: "https://github.com/hawra-17/To-do",
-    liveUrl: "#",
-    image:
-      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&h=400&fit=crop", // Movie themed image
+    liveUrl: "",
+    image: Todo,
   },
   {
     id: 3,
