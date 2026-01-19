@@ -28,12 +28,15 @@ export function Hero() {
         </div>
 
         <div className="flex items-center gap-4 pt-4 justify-center md:justify-start">
-          <Button
-            size="lg"
-            className="rounded-none bg-[#FF715B] hover:bg-[#ff8674]"
-          >
-            Got a project?
-          </Button>
+          {/* mailto: link opens user's email client with your email pre-filled */}
+          <a href="mailto:Hawra-Alaradi@outlook.sa">
+            <Button
+              size="lg"
+              className="rounded-none bg-[#FF715B] hover:bg-[#ff8674]"
+            >
+              Got a project?
+            </Button>
+          </a>
           <Button
             variant="outline"
             size="lg"

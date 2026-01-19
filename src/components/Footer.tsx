@@ -13,8 +13,9 @@ export function Footer() {
       </p>
 
       <div className="flex justify-center gap-6 pt-2">
+        {/* mailto: link opens user's email client */}
         <a
-          href="#"
+          href="mailto:Hawra-Alaradi@outlook.sa"
           className="w-10 h-10 bg-white text-slate-900 rounded-full flex items-center justify-center hover:bg-[#FF715B] hover:text-white transition-all"
         >
           <Mail size={20} />

@@ -1,4 +1,4 @@
-import { Code2, Smartphone, Server } from "lucide-react";
+import { Code2, Server } from "lucide-react";
 
 /**
  * About & Services Section
