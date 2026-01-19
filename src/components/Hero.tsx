@@ -37,13 +37,24 @@ export function Hero() {
               Got a project?
             </Button>
           </a>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-none border-slate-500"
+          {/* 
+            Download Resume Button
+            - href points to the PDF in the public folder (files in public/ are served at root "/")
+            - download attribute tells browser to download instead of opening in new tab
+            - download="filename.pdf" also sets the downloaded file's name
+          */}
+          <a
+            href="/Hawra-Alaradi-Resume.pdf"
+            download="Hawra-Alaradi-Resume.pdf"
           >
-            My resume
-          </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-none border-slate-500"
+            >
+              My resume
+            </Button>
+          </a>
         </div>
       </div>
 
