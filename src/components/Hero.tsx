@@ -20,9 +20,13 @@ export function Hero() {
         <div className="space-y-2">
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <span className="w-12 h-[2px] bg-[#FF715B]"></span>
-            <p className="text-xl text-slate-300 font-medium">I'm Hawra</p>
+            {/* Light mode: dark gray text, Dark mode: light gray text */}
+            <p className="text-xl text-slate-600 dark:text-slate-300 font-medium">
+              I'm Hawra
+            </p>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+          {/* Light mode: dark text, Dark mode: white text */}
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
             Software Engineer
           </h1>
         </div>
@@ -67,7 +71,8 @@ export function Hero() {
 
           {/* Example Placeholder Image - In a real app, import the actual image */}
           {/* We use a colored div + emoji as a placeholder if no image exists */}
-          <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
+          {/* Light mode: light gray bg, Dark mode: dark gray bg */}
+          <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
             <img
               src={Hawra}
               alt="Hawra"

@@ -117,17 +117,17 @@ function ProjectCard({
     >
       {/* Text Content Side */}
       <div className="flex-1 space-y-6">
-        {/* Project Title */}
-        <h3 className="text-2xl md:text-3xl font-bold text-white">
+        {/* Project Title - adapts to light/dark mode */}
+        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
           {project.title}
         </h3>
 
-        {/* Technology Tags */}
+        {/* Technology Tags - border and text adapt to theme */}
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-4 py-1.5 text-sm rounded-full border border-slate-600 text-slate-300 hover:border-[#FF715B] transition-colors"
+              className="px-4 py-1.5 text-sm rounded-full border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:border-[#FF715B] transition-colors"
             >
               {tag}
             </span>
@@ -135,7 +135,9 @@ function ProjectCard({
         </div>
 
         {/* Project Description */}
-        <p className="text-slate-400 leading-relaxed">{project.description}</p>
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+          {project.description}
+        </p>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4 pt-2">
@@ -152,16 +154,16 @@ function ProjectCard({
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white hover:text-[#FF715B] transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-slate-900 dark:text-white hover:text-[#FF715B] transition-colors font-medium"
           >
             View project <ExternalLink size={16} />
           </a>
         </div>
       </div>
 
-      {/* Image Side */}
+      {/* Image Side - border adapts to theme */}
       <div className="flex-1 w-full">
-        <div className="relative rounded-lg overflow-hidden border border-slate-700/50 bg-slate-800/30 group">
+        <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700/50 bg-slate-100 dark:bg-slate-800/30 group">
           {/* Project Screenshot */}
           <img
             src={project.image}

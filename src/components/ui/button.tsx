@@ -20,12 +20,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles =
       "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF715B] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
-    // Variant styles matching the orange/dark theme in the image
+    // Variant styles - now support both light and dark mode
+    // Light mode: dark text, Dark mode: light text
     const variants = {
       primary: "bg-[#FF715B] text-white hover:bg-[#FF715B]/90 shadow-md",
       outline:
-        "border border-slate-600 bg-transparent hover:bg-slate-800 text-white",
-      ghost: "hover:bg-slate-800 text-slate-300 hover:text-white",
+        "border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white",
+      ghost:
+        "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white",
       link: "text-[#FF715B] underline-offset-4 hover:underline",
     };
 

@@ -49,13 +49,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 md:px-12 bg-[#0d1221]">
+    // Light mode: light gray bg, Dark mode: very dark blue bg
+    <section
+      id="contact"
+      className="py-20 px-6 md:px-12 bg-slate-50 dark:bg-[#0d1221] transition-colors"
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:items-start">
         {/* Left: Heading */}
         <div className="flex-1 space-y-6">
           <div className="flex items-center gap-4">
             <span className="w-12 h-[2px] bg-[#FF715B]"></span>
-            <span className="text-xl text-slate-300 font-medium">Contacts</span>
+            <span className="text-xl text-slate-600 dark:text-slate-300 font-medium">
+              Contacts
+            </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
             Have a project? <br />
@@ -76,7 +82,7 @@ export function Contact() {
           <div className="space-y-2">
             <label
               htmlFor="name"
-              className="text-sm font-medium text-slate-300"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300"
             >
               Name
             </label>
@@ -85,7 +91,7 @@ export function Contact() {
               id="name"
               name="name"
               required
-              className="w-full bg-transparent border-b border-slate-700 py-2 text-white focus:outline-none focus:border-[#FF715B] transition-colors"
+              className="w-full bg-transparent border-b border-slate-300 dark:border-slate-700 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-[#FF715B] transition-colors"
             />
           </div>
 
@@ -93,7 +99,7 @@ export function Contact() {
           <div className="space-y-2">
             <label
               htmlFor="email"
-              className="text-sm font-medium text-slate-300"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300"
             >
               Email
             </label>
@@ -102,7 +108,7 @@ export function Contact() {
               id="email"
               name="email"
               required
-              className="w-full bg-transparent border-b border-slate-700 py-2 text-white focus:outline-none focus:border-[#FF715B] transition-colors"
+              className="w-full bg-transparent border-b border-slate-300 dark:border-slate-700 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-[#FF715B] transition-colors"
             />
           </div>
 
@@ -110,7 +116,7 @@ export function Contact() {
           <div className="space-y-2">
             <label
               htmlFor="message"
-              className="text-sm font-medium text-slate-300"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300"
             >
               Message
             </label>
@@ -119,7 +125,7 @@ export function Contact() {
               name="message"
               rows={4}
               required
-              className="w-full bg-transparent border-b border-slate-700 py-2 text-white focus:outline-none focus:border-[#FF715B] transition-colors resize-none"
+              className="w-full bg-transparent border-b border-slate-300 dark:border-slate-700 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-[#FF715B] transition-colors resize-none"
             />
           </div>
 

@@ -6,9 +6,10 @@ import { Github, Linkedin, Mail } from "lucide-react";
  */
 export function Footer() {
   return (
-    <footer className="py-12 bg-[#0b101b] text-center space-y-6">
+    // Light mode: slate bg, Dark mode: very dark bg
+    <footer className="py-12 bg-slate-100 dark:bg-[#0b101b] text-center space-y-6 transition-colors">
       <h3 className="text-2xl font-bold">Hawra Alaradi </h3>
-      <p className="text-slate-500 text-sm">
+      <p className="text-slate-500 dark:text-slate-500 text-sm">
         Designed with love, all right reserved for Hawra Alaradi.
       </p>
 

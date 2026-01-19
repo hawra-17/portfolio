@@ -15,12 +15,12 @@ export function AboutServices() {
 
           {/* Service Item 1 */}
           <div className="relative flex items-center gap-6 group">
-            {/* Dot on the line */}
-            <div className="absolute left-0 w-5 h-5 rounded-full bg-[#FF715B] border-4 border-[#0f172a] z-10"></div>
+            {/* Dot on the line - border matches background color */}
+            <div className="absolute left-0 w-5 h-5 rounded-full bg-[#FF715B] border-4 border-white dark:border-[#0f172a] z-10"></div>
 
-            {/* Icon Box */}
-            <div className="ml-8 w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-slate-800/50 group-hover:border-[#FF715B] transition-colors">
-              <Code2 className="text-white w-6 h-6" />
+            {/* Icon Box - adapts to light/dark mode */}
+            <div className="ml-8 w-12 h-12 flex items-center justify-center rounded border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-slate-800/50 group-hover:border-[#FF715B] transition-colors">
+              <Code2 className="text-slate-700 dark:text-white w-6 h-6" />
             </div>
 
             <h3 className="text-xl font-bold">Website Development</h3>
@@ -39,10 +39,10 @@ export function AboutServices() {
 
           {/* Service Item 3 */}
           <div className="relative flex items-center gap-6 group">
-            <div className="absolute left-0 w-5 h-5 rounded-full bg-[#FF715B] border-4 border-[#0f172a] z-10"></div>
+            <div className="absolute left-0 w-5 h-5 rounded-full bg-[#FF715B] border-4 border-white dark:border-[#0f172a] z-10"></div>
 
-            <div className="ml-8 w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-slate-800/50 group-hover:border-[#FF715B] transition-colors">
-              <Server className="text-white w-6 h-6" />
+            <div className="ml-8 w-12 h-12 flex items-center justify-center rounded border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-slate-800/50 group-hover:border-[#FF715B] transition-colors">
+              <Server className="text-slate-700 dark:text-white w-6 h-6" />
             </div>
 
             <h3 className="text-xl font-bold">Website Hosting</h3>
@@ -53,7 +53,8 @@ export function AboutServices() {
         <div className="space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold">About me</h2>
 
-          <p className="text-slate-400 leading-relaxed">
+          {/* Paragraph text adapts to theme */}
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
             Hawra Alaradi is a software engineer passionate about application
             and web development. I enjoy exploring new technologies and
             frameworks to build practical software solutions that make everyday
