@@ -1,24 +1,24 @@
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { ExternalLink } from "lucide-react";
-import Zakat from "../assets/projectsImage/Zakat.png";
-import Alnas from "../assets/projectsImage/AlNas.png";
-import Todo from "../assets/projectsImage/Todo.png";
+import { ExternalLink, Loader2 } from "lucide-react";
+import { supabase } from "../lib/supabase";
 
 /**
  * Projects Section Component
  *
- * Displays a grid of project cards, each containing:
- * - Project title
- * - Technology tags (HTML, CSS, Javascript, etc.)
- * - Project description
- * - Links to GitHub and live demo
- * - Screenshot/preview image
+ * NOW FETCHES DATA FROM SUPABASE!
+ *
+ * How it works:
+ * 1. Component mounts → useEffect runs
+ * 2. fetchProjects() calls Supabase API
+ * 3. Data is stored in state → component re-renders with projects
  *
  * The layout alternates: odd projects have text on left, image on right.
  * Even projects have image on left, text on right.
  */
 
-// Define the structure of a project for type safety
+// Define the structure matching your Supabase table columns
+// Note: Supabase uses snake_case, so we match that here
 interface Project {
   id: number;
   title: string;
@@ -29,48 +29,75 @@ interface Project {
   image: string;
 }
 
-// Array of projects - easy to add/remove/modify
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Zakat Calculator",
-    description:
-      "I have developed a user-friendly web application that facilitates the calculation of zakat for individuals. The application is constructed utilizing",
-    tags: ["React js", "Tailwind CSS", "Javascript", "hosted on GitHub Pages."],
-    githubUrl: "https://github.com/hawra-17/Zakat-calc",
-    liveUrl: "https://hawra-17.github.io/Zakat-calc/",
-    image: Zakat,
-  },
-  {
-    id: 2,
-    title: "To do List",
-    description:
-      "I have developed a user-friendly web application designed to assist individuals in organizing their schedules. The application serves as a straightforward to-do list and was constructed using",
-    tags: ["HTML", "Tailwind CSS", "Javascript"],
-    githubUrl: "https://github.com/hawra-17/To-do",
-    liveUrl: "",
-    image: Todo,
-  },
-  {
-    id: 3,
-    title: "Al Nas AI Chatbot",
-    description:
-      "I have developed a user-friendly web application for Al Nas Hospital, which belongs to ADES Company. The web application provides an AI-powered assistant that helps users interact, ask questions, and receive intelligent responses through a simple and modern interface, with a focus on accessibility and smooth user experience",
-    tags: [
-      "Next.js,",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vercel",
-      "AI API integration",
-    ],
-    githubUrl: "https://github.com/hawra-17/AlNas-AI",
-    liveUrl: "https://al-nas-ai.vercel.app/",
-    image: Alnas,
-  },
-];
+// Projects are now fetched from Supabase instead of being hardcoded!
 
 export function Projects() {
+  // State to store projects fetched from Supabase
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  // State to track loading status (shows spinner while fetching)
+  const [loading, setLoading] = useState(true);
+
+  // State to store any error messages
+  const [error, setError] = useState<string | null>(null);
+
+  /**
+   * useEffect runs when the component first mounts
+   * It fetches projects from Supabase and updates the state
+   */
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        // Query Supabase: SELECT * FROM Projects ORDER BY id
+        const { data, error } = await supabase
+          .from("Projects") // Table name in Supabase (case-sensitive!)
+          .select("*") // Select all columns
+          .order("id", { ascending: true }); // Order by id
+
+        // If Supabase returns an error, throw it
+        if (error) {
+          throw error;
+        }
+
+        // If successful, update state with the fetched projects
+        setProjects(data || []);
+      } catch (err: any) {
+        // If something goes wrong, store the error message
+        // Show actual error for debugging
+        console.error("Error fetching projects:", err);
+        setError(`Failed to load projects: ${err?.message || "Unknown error"}`);
+      } finally {
+        // Whether success or error, stop showing the loading spinner
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []); // Empty array = only run once when component mounts
+
+  // Show loading spinner while fetching
+  if (loading) {
+    return (
+      <section id="projects" className="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 animate-spin mx-auto text-[#FF715B]" />
+          <p className="mt-4 text-slate-500">Loading projects...</p>
+        </div>
+      </section>
+    );
+  }
+
+  // Show error message if something went wrong
+  if (error) {
+    return (
+      <section id="projects" className="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="text-center text-red-500">
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="projects" className="py-20 px-6 md:px-12 max-w-7xl mx-auto">
       {/* Section Header */}

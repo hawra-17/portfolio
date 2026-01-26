@@ -1,5 +1,4 @@
 import { Button } from "./ui/button";
-import Hawra from "../assets/MyPhoto/Hawra.JPG";
 
 /**
  * Hero Component
@@ -74,7 +73,7 @@ export function Hero() {
           {/* Light mode: light gray bg, Dark mode: dark gray bg */}
           <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
             <img
-              src={Hawra}
+              src="Hawra.JPG"
               alt="Hawra"
               className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
             />
