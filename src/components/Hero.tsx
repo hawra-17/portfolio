@@ -41,14 +41,14 @@ export function Hero() {
             </Button>
           </a>
           {/* 
-            Download Resume Button
+            Resume Button
             - href points to the PDF in the public folder (files in public/ are served at root "/")
-            - download attribute tells browser to download instead of opening in new tab
-            - download="filename.pdf" also sets the downloaded file's name
+            - target="_blank" opens the PDF in a new browser tab/window
           */}
           <a
-            href="/Hawra-Alaradi-Resume.pdf"
-            download="Hawra-Alaradi-Resume.pdf"
+            href="/Hawra-Faris-AlaradiCV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Button
               variant="outline"

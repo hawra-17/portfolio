@@ -14,6 +14,7 @@ export function TechStack() {
     "Typescript",
     "Next.js",
     "React",
+    "Supabase",
     "Git",
     "Github",
   ];
