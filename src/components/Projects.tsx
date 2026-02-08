@@ -47,6 +47,13 @@ export function Projects() {
    */
   useEffect(() => {
     async function fetchProjects() {
+      // Check if Supabase is configured
+      if (!supabase) {
+        setError("Database not configured. Please add environment variables.");
+        setLoading(false);
+        return;
+      }
+
       try {
         // Query Supabase: SELECT * FROM Projects ORDER BY id
         const { data, error } = await supabase
