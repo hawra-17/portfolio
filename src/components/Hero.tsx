@@ -46,7 +46,7 @@ export function Hero() {
             - target="_blank" opens the PDF in a new browser tab/window
           */}
           <a
-            href="/Hawra-Faris-AlaradiCV.pdf"
+            href="/Hawra_Alaradi_Resume_.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
